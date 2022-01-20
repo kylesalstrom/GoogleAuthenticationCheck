@@ -17,10 +17,19 @@ namespace GoogleAuthenticationCheck
             {
                 Console.WriteLine($"\tAuthenticating {authFilePath}");
                 Console.WriteLine("------------------------------------------");
+
                 if(VerifyPrivateKeyFile(authFilePath) && AuthenticatePrivateKeyFile(authFilePath))
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine($"{Path.GetFileName(authFilePath)} Succeeded.");
+                }
                 else
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine($"{Path.GetFileName(authFilePath)} Failed.");
+                }
+                Console.ResetColor();
+
                 Console.WriteLine("--------------------");
                 Console.WriteLine();
                 Console.WriteLine();
